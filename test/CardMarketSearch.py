@@ -42,6 +42,11 @@ def search_card():
             fix_hairline=True)
 
     driver.get('https://www.cardmarket.com/de/Pokemon')
+
+    # Wait for page to load
+    while driver.execute_script("return document.readyState") != "complete":
+        pass
+
     time.sleep(15)
     driver.save_screenshot('screenshot.png')
     time.sleep(3)
