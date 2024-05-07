@@ -16,4 +16,5 @@ def search_card():
 
     driver.quit()
 
+
 search_card()
