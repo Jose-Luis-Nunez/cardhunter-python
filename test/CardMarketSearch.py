@@ -16,7 +16,7 @@ def search_card():
 
     driver.get('https://www.cardmarket.com/de/Pokemon')
 
-    time.sleep(4)
+    time.sleep(10)
     driver.save_screenshot('screenshot.png')
     time.sleep(2)
 
