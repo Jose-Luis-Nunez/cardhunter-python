@@ -4,11 +4,18 @@ import time
 
 
 def search_card():
+
     options = uc.ChromeOptions()
     options.add_argument('--headless')
     options.add_argument("--start-maximized")
+    options.add_argument('--disable-blink-features=AutomationControlled')
+    options.add_argument('--disable-popup-blocking')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+
+
     options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.6167.140 Safari/537.36")
-    options.add_argument('--proxy-server=http://116.202.213.226:3128')
+    # options.add_argument('--proxy-server=http://116.202.213.226:3128')
 
     driver = uc.Chrome(options=options)
 
