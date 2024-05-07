@@ -18,6 +18,7 @@ def search_card():
     # options.add_argument('--proxy-server=http://116.202.213.226:3128')
 
     driver = uc.Chrome(options=options)
+    driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
 
     stealth(driver,
             languages=["de-DE", "de"],
