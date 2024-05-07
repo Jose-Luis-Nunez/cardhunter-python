@@ -30,7 +30,7 @@ def search_card():
 
     # options.add_argument('--proxy-server=http://116.202.213.226:3128')
 
-    driver = uc.Chrome(options=options)
+    driver = uc.Chrome(use_subprocess=True, options=options)
     driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
 
     stealth(driver,
@@ -43,9 +43,9 @@ def search_card():
 
     driver.get('https://www.cardmarket.com/de/Pokemon')
 
-    # Wait for page to load
-    while driver.execute_script("return document.readyState") != "complete":
-        pass
+    # # Wait for page to load
+    # while driver.execute_script("return document.readyState") != "complete":
+    #     pass
 
     time.sleep(15)
     driver.save_screenshot('screenshot.png')
