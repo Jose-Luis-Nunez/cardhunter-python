@@ -1,32 +1,28 @@
 import undetected_chromedriver as uc
-from selenium import webdriver
-
+from selenium_stealth import stealth
 import time
 
 
 def search_card():
-    # driver = uc.Chrome(headless=True,use_subprocess=False)
-
-    # options = uc.ChromeOptions()
-    # options.headless = True
-    # options.add_argument('--no-sandbox')
-    # options.add_argument('--disable-dev-shm-usage')
-    # options.add_argument('--disable-gpu')
-    #
-    # driver = uc.Chrome(options=options)
-    options = webdriver.ChromeOptions()
-    options.headless = True
-    options.add_argument("start-maximized")
-    options.add_experimental_option("excludeSwitches", ["enable-automation"])
-    options.add_experimental_option('useAutomationExtension', False)
+    options = uc.ChromeOptions()
+    options.add_argument('--headless')
+    options.add_argument("--start-maximized")
+    options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.6167.140 Safari/537.36")
 
     driver = uc.Chrome(options=options)
-    driver.get('https://www.cardmarket.com/de/Pokemon')
 
+    stealth(driver,
+            languages=["en-US", "en"],
+            vendor="Google Inc.",
+            platform="Win32",
+            webgl_vendor="Intel Inc.",
+            renderer="Intel Iris OpenGL Engine",
+            fix_hairline=True)
+
+    driver.get('https://www.cardmarket.com/de/Pokemon')
     time.sleep(10)
     driver.save_screenshot('screenshot.png')
     time.sleep(2)
-
     driver.quit()
 
 

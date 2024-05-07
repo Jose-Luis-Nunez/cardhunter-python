@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install undetected-chromedriver
+          pip install undetected-chromedriver selenium-stealth
 
       - name: Run Selenium test and take screenshot
         run: python test/CardMarketSearch.py
